@@ -1,0 +1,33 @@
+# Dependencies — installed fresh in each Docker stage
+node_modules
+frontend/node_modules
+
+# TypeScript build output — compiled in Docker
+dist
+
+# Frontend build output — built in Docker
+frontend/dist
+
+# Local environment — never bake secrets into the image
+.env
+.env.*
+!.env.example
+
+# Development tools
+.claude
+DevNotes
+
+# Git
+.git
+.gitignore
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+coverage

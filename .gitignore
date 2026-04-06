@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+dist/
+frontend/dist/
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Claude Code local settings (may contain API keys)
+.claude/settings.local.json
+
+# TypeScript
+*.tsbuildinfo
+
+# Playwright browsers
+frontend/node_modules/.cache/
+
+# Docker volumes (local data)
+postgres-data/
+redis-data/

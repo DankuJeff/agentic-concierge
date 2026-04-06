@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    name: Typecheck, Test & Docker build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install backend dependencies
+        run: npm ci
+
+      - name: Install frontend dependencies
+        run: cd frontend && npm ci
+
+      - name: Typecheck backend
+        run: npm run typecheck
+
+      - name: Typecheck frontend
+        run: cd frontend && npx tsc --noEmit
+
+      - name: Run tests
+        # --passWithNoTests: CI passes when no test files exist yet (pre-Phase 5)
+        run: npm test -- --passWithNoTests
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker build smoke test
+        # Build the image without pushing to verify the Dockerfile is valid
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: concierge:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

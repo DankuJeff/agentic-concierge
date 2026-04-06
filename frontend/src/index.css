@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #09090b;
+  color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* ── Text selection ──────────────────────────────────────── */
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+
+/* ── Gradient text ───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #e0e7ff 0%, #a5b4fc 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Dot grid background ─────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* ── Indigo glow button ──────────────────────────────────── */
+.btn-glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 35px rgba(99, 102, 241, 0.6);
+}
+
+/* ── Card hover lift ─────────────────────────────────────── */
+.card-hover {
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  border-color: #3f3f46;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Animated gradient border on focus inputs ─────────────── */
+.input-dark {
+  background: rgba(39, 39, 42, 0.6);
+  border: 1px solid #3f3f46;
+  color: #fafafa;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input-dark::placeholder {
+  color: #52525b;
+}
+.input-dark:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ── Nav active state bar ────────────────────────────────── */
+.nav-active {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+/* ── Subtle grid lines for analytics ────────────────────── */
+.metric-card {
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.8) 0%, rgba(24, 24, 27, 0.4) 100%);
+  border: 1px solid #27272a;
+  backdrop-filter: blur(8px);
+}
