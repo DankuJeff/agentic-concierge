@@ -24,8 +24,8 @@ Thumbs.db
 .idea/
 *.swp
 
-# Claude Code local settings (may contain API keys)
-.claude/settings.local.json
+# Claude Code workspace files
+.claude/
 
 # TypeScript
 *.tsbuildinfo
